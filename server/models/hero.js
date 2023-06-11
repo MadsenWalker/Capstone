@@ -9,6 +9,6 @@ module.exports = {
             allowNull: false,
             primaryKey: true,
         },
-        
+        spotlight: DataTypes.INTEGER
     })
 }

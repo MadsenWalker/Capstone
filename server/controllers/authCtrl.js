@@ -5,7 +5,7 @@ module.exports = {
     register: async (req, res) => {
         console.log('hit register', req.session)
         try{
-            const {username, password} = req.body
+            const {username, password, email} = req.body
 
             let foundUser = await User.findOne({where: {username}})
             if(foundUser){
@@ -16,6 +16,7 @@ module.exports = {
 
                 const newUser = await User.create({
                     username,
+                    email,
                     hashedPass: hash
                 })
 
@@ -66,4 +67,10 @@ module.exports = {
         } else {
             res.status(400).send('No user found')
         }
-    }}
+
+    },
+    logout: (req, res) => {
+        req.session.destroy()
+        res.sendStatus(200)
+    }
+}

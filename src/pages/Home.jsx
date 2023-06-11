@@ -1,11 +1,10 @@
 import { useState, useContext } from 'react'
 import axios from 'axios'
 import AuthContext from '../store/authContext'
-
-
+import '../css/Home.css'
 
 const Home = () => {
-    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [register, setRegister] = useState(false)
     const authCtx = useContext(AuthContext)
@@ -14,7 +13,7 @@ const Home = () => {
         e.preventDefault()
         axios
             .post(register ? "/api/register" : "/api/login", {
-                username,
+                email,
                 password
             })
             .then(res => {
@@ -29,8 +28,8 @@ const Home = () => {
             {register ? (
                 <form onSubmit={e => handleSubmit(e)}>
                     <input
-                        placeholder="username"
-                        onChange={e => setUsername(e.target.value)}
+                        placeholder="email"
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <input
                         placeholder="Password"
@@ -41,8 +40,8 @@ const Home = () => {
             ) : (
                 <form onSubmit={e => handleSubmit(e)}>
                     <input
-                        placeholder="username"
-                        onChange={e => setUsername(e.target.value)}
+                        placeholder="email"
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <input
                         placeholder="Password"

@@ -9,6 +9,8 @@ module.exports = {
             allowNull: false,
             primaryKey: true,
         },
-        
+        title: DataTypes.STRING,
+        body: DataTypes.STRING,
+        additional_info: DataTypes.STRING,
     })
 }

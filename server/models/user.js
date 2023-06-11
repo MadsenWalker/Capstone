@@ -9,6 +9,8 @@ module.exports = {
             allowNull: false,
             primaryKey: true
         },
-        username: DataTypes.STRING,
-        hashedPass: DataTypes.STRING
+        email: DataTypes.STRING,
+        hashedPass: DataTypes.STRING,
+        created_on: DataTypes.DATE,
+        last_login: DataTypes.DATE,
     })}
