@@ -1,10 +1,10 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
 import AuthContext from '../store/authContext'
 import '../css/Home.css'
 
 const Home = () => {
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [register, setRegister] = useState(false)
     const authCtx = useContext(AuthContext)
@@ -13,8 +13,8 @@ const Home = () => {
         e.preventDefault()
         axios
             .post(register ? "/api/register" : "/api/login", {
-                email,
-                password
+                username,
+                password,
             })
             .then(res => {
                 authCtx.login(res.data.userId)
@@ -29,7 +29,7 @@ const Home = () => {
                 <form onSubmit={e => handleSubmit(e)}>
                     <input
                         placeholder="email"
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={e => setUsername(e.target.value)}
                     />
                     <input
                         placeholder="Password"
@@ -41,7 +41,7 @@ const Home = () => {
                 <form onSubmit={e => handleSubmit(e)}>
                     <input
                         placeholder="email"
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={e => setUsername(e.target.value)}
                     />
                     <input
                         placeholder="Password"

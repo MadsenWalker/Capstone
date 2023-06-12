@@ -1,30 +1,43 @@
 // import { useParams } from 'react-router-dom'
-import {useState, useEffect}from 'react'
-import HeroCard from '../elements/HeroCard'
+import {useState, useEffect, useContext}from 'react'
+import { NavLink } from 'react-router-dom'
+import AuthContext from '../store/authContext'
+// import HeroCard from '../elements/HeroCard'
 import axios from 'axios'
 
 const Header= () => {
 
-    const [heroes, setHeroes] = useState([])
+
+    const {userId, logout} = useContext(AuthContext)
+
+    // const [heroes, setHeroes] = useState([])
    
 
-    const getHeroes = () => {
-        axios.get(`/api/hero`)
-            .then(res => {
-                console.log(res.data)
-                setHeroes(res.data)
-            })
-            .catch(err => console.log('Not accomplishing goals by getting errors are we?'))
-    }
+    // const getHeroes = () => {
+    //     axios.get(`/api/hero`)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             setHeroes(res.data)
+    //         })
+    //         .catch(err => console.log('Not accomplishing goals by getting errors are we?'))
+    // }
 
-    useEffect(() => {
-        getHeroes()
-    }, [])
+    // useEffect(() => {
+    //     getHeroes()
+    // }, [])
 
   return (
+    userId ? (
     <div>
-        {heroes.map(hero => <HeroCard hero={hero}/>)}
+        <nav className='flex justify-center items-center h-[10vh] bg-secondary'>
+        <NavLink to='/dashboard' className='mx-10'>Dashboard</NavLink>
+        <NavLink to='/reading' className='mx-10'>Resources</NavLink>
+        <button onClick={logout} className='mx-10'>Logout</button>
+    </nav>
+   
+        {/* {heroes.map(hero => <HeroCard hero={hero}/>)} */}
     </div>
+  ) : null
   )
 }
 

@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate} from 'react-router-dom';
 // import logo from './logo.svg';
 
 import Header from './containers/Header'
@@ -17,12 +17,17 @@ function App() {
   return (
     <div>
       <Header/>
+     
     <Routes>
-        <Route index element={userId ? <Navigate to='/home'/> : <Home/>}/>
+        {/* <Route index element={userId ? <Navigate to='/home'/> : <Home/>}/>
+        <Route path='/dashboard' element={userId ? <Dashboard/> : <Navigate to='/'/>}/>
+        <Route path='/reading' element={userId ? <Reading/> : <Navigate to='/'/>}/> */}
+          <Route index element={userId ? <Navigate to='/home'/> : <Home/>}/>
         <Route path='/dashboard' element={userId ? <Dashboard/> : <Navigate to='/'/>}/>
         <Route path='/reading' element={userId ? <Reading/> : <Navigate to='/'/>}/>
     </Routes>
     <Footer/>
+    
 </div>
 )
 }

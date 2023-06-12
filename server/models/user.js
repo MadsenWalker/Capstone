@@ -9,7 +9,7 @@ module.exports = {
             allowNull: false,
             primaryKey: true
         },
-        email: DataTypes.STRING,
+        username: DataTypes.STRING,
         hashedPass: DataTypes.STRING,
         created_on: DataTypes.DATE,
         last_login: DataTypes.DATE,
