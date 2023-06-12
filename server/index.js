@@ -48,12 +48,15 @@ app.use(session({
     }
 }))
 
-
+// auth points
 app.post('/api/register', register)
 app.post('/api/login', login)
 app.get('/api/user', checkUser)
 app.post('/api/logout', logout)
-app.get('/api/goal', addNewGoal)
+
+//end points
+
+app.post('/api/goal', addNewGoal)
 
 // app.get('/api/hero', hero )
 // app.get('/api/resource',)

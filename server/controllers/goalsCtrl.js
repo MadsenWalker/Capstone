@@ -13,7 +13,7 @@ module.exports = {
                 unit_of_measure,
                 perfect_score,
                 photo_album_link,
-                userid,
+                user_id
             } = req.body
 
             const newGoal = await Goal.create({
@@ -23,78 +23,43 @@ module.exports = {
                 unit_of_measure,
                 perfect_score,
                 photo_album_link,
-                userid,
+                user_id
             })
 
-            selectedTopics.forEach(async id => {
-                await BookTopic.create({ bookId: newBook.id, topicId: id })
-            })
+            // selectedTopics.forEach(async id => {
+            //     await BookTopic.create({ bookId: newBook.id, topicId: id })
+            // })
 
             res.sendStatus(200)
         } catch (theseHands) {
             console.log(theseHands)
-            res.status(500).send("Book was not added successfully")
+            res.status(500).send("Goal was not added successfully")
         }
     },
-//     getUserBooks: async (req, res) => {
-//         try {
-//             const { userId } = req.params
+    getUserGoals: async (req, res) => {
+        try {
+            const { userId } = req.params
 
-//             const books = await Book.findAll({
-//                 include: [
-//                     {
-//                         model: User,
-//                         attributes: ["username", "id"],
-//                         where: { id: userId }
-//                     },
-//                     {
-//                         model: BookTopic,
-//                         attributes: ["id"],
-//                         include: [
-//                             {
-//                                 model: Topic,
-//                                 attributes: ["id", "topicName"]
-//                             }
-//                         ]
-//                     }
-//                 ]
-//             })
+            const goals = await Goal.findAll({
+                include: [
+                    {
+                        model: User,
+                        attributes: ["username", "id"],
+                        where: { id: userId }
+                    },
+                    {
+                        model: goal,
+                        attributes: ["id"],
+                        
+                    }
+                ]
+            })
 
-//             res.status(200).send(books)
-//         } catch (err) {
-//             console.log(err)
-//             res.sendStatus(500)
-//         }
-//     },
-//     getBookDeets: async (req, res) => {
-//         try{
-//             const {bookId} = req.params
+            res.status(200).send(books)
+        } catch (err) {
+            console.log(err)
+            res.sendStatus(500)
+        }
+    },
 
-//             const book = await Book.findOne({
-//                 where: {id: bookId},
-//                 include: [
-//                     {
-//                         model: User,
-//                         attributes: ["username", "id"]
-//                     },
-//                     {
-//                         model: BookTopic,
-//                         attributes: ["id"],
-//                         include: [
-//                             {
-//                                 model: Topic,
-//                                 attributes: ["id", "topicName"]
-//                             }
-//                         ]
-//                     }
-//                 ]
-//             })
-
-//             res.status(200).send(book)
-
-//         }catch(err){
-//             console.log(err)
-//             res.status(400).send("no book found")
-//         }
-//     }
 }

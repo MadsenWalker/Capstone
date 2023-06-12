@@ -1,9 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../css/GoalCard.css'
-import goal from '../../server/models/goal'
 
-const GoalCard = () => {
+const GoalCard = ({goal}) => {
   const navigate = useNavigate()
   return (
     <div class="container mt-5 mb-3">

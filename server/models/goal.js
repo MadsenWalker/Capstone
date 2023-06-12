@@ -32,7 +32,5 @@ module.exports = {
             type:DataTypes.STRING,
             allowNull: false,
         },
-        Hero_id: DataTypes.INTEGER,
-        User_id: DataTypes.INTEGER,
-        Resource_id: DataTypes.INTEGER,
+        user_id: DataTypes.INTEGER,
     })};
