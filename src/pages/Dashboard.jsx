@@ -8,6 +8,9 @@ const Dashboard = () => {
 const [goals, setGoals] = useState([])
 const {userId} = useContext(AuthContext)
 
+
+
+
 const getUserGoals = () => {
   axios.get(`/api/goal/${userId}`)
   .then(res => {

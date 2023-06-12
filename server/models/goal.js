@@ -28,9 +28,15 @@ module.exports = {
             type:DataTypes.STRING,
             allowNull: false,
         },
+        current_score: {
+            type:DataTypes.STRING,
+            allowNull: false,
+        },
         photo_album_link: {
             type:DataTypes.STRING,
             allowNull: false,
         },
-        user_id: DataTypes.INTEGER,
+        userId: {
+            type: DataTypes.INTEGER,
+        }
     })};

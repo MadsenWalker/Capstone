@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Reading from './pages/Reading'
 import AuthContext from './store/authContext';
+import AddGoal from './pages/AddGoal';
 import { useContext } from 'react';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     path="/dashboard"
     element={userId ? <Dashboard /> : <Navigate to="/" />}
   />
+  <Route path="/addGoal" element={userId ? <AddGoal/> : <Navigate to='/'/>}/>
   <Route
     path="/reading"
     element={userId ? <Reading /> : <Navigate to="/" />}

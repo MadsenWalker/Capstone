@@ -4,14 +4,19 @@ body {
 
 .card {
     border: none;
-    border-radius: 10px
+    border-radius: 10px;
+    background-color: rgb(145, 145, 145);
+    /* background-image: url(https://lh3.googleusercontent.com/_y6ZS8tkdRRw0HbhSoPsd3zYq8U4Hl6IWPyTX84Bii2IFMYHh1ou3ao8sO_tGzUkXzNnsmcu-7mWAvITLNsAl-pIg0fNY04MecA1zI7c6Mlcx5YMCMYLYyZ6FyU1RizD9agnk-EWOMA=w1920-h1080);
+    background-size:     cover;                   
+    background-repeat:   no-repeat;
+    background-position: center center;   */
 }
 
 .c-details span {
     font-weight: 300;
     font-size: 13px
 }
-
+/* 
 .icon {
     width: 50px;
     height: 50px;
@@ -21,18 +26,19 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 39px
-}
+} */
 
 .badge span {
-    background-color: #fffbec;
-    width: 60px;
+    background-color: #024074;
+    width: fit-content;
     height: 25px;
-    padding-bottom: 3px;
+    padding: 3px;
     border-radius: 5px;
     display: flex;
-    color: #fed85d;
+    color: #b7f4ff;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    word-wrap: break-word;
 }
 
 .progress {
@@ -41,7 +47,7 @@ body {
 }
 
 .progress div {
-    background-color: red
+    background-color: rgb(0, 96, 221)
 }
 
 .text1 {

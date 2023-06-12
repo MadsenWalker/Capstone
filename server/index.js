@@ -29,7 +29,7 @@ Goal.belongsTo(User)
 
 // Controller imports
 const {register, login, checkUser, logout} = require('./controllers/authCtrl')
-const {addNewGoal, getGoal, getGoalDetails} =require('./controllers/goalsCtrl')
+const {addNewGoal, getUserGoals, getGoalDetails} =require('./controllers/goalsCtrl')
 const {hero} =require('./controllers/heroCtrl')
 
 
@@ -57,6 +57,7 @@ app.post('/api/logout', logout)
 //end points
 
 app.post('/api/goal', addNewGoal)
+app.get('/api/goal/:userId', getUserGoals)
 
 // app.get('/api/hero', hero )
 // app.get('/api/resource',)

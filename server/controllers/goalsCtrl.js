@@ -12,8 +12,9 @@ module.exports = {
                 description,
                 unit_of_measure,
                 perfect_score,
+                current_score,
                 photo_album_link,
-                user_id
+                userId
             } = req.body
 
             const newGoal = await Goal.create({
@@ -22,13 +23,11 @@ module.exports = {
                 description,
                 unit_of_measure,
                 perfect_score,
+                current_score,
                 photo_album_link,
-                user_id
+                userId
             })
 
-            // selectedTopics.forEach(async id => {
-            //     await BookTopic.create({ bookId: newBook.id, topicId: id })
-            // })
 
             res.sendStatus(200)
         } catch (theseHands) {
@@ -41,25 +40,33 @@ module.exports = {
             const { userId } = req.params
 
             const goals = await Goal.findAll({
+                where: { userId: userId },
                 include: [
                     {
                         model: User,
                         attributes: ["username", "id"],
-                        where: { id: userId }
+                      
                     },
-                    {
-                        model: goal,
-                        attributes: ["id"],
-                        
-                    }
+                    
                 ]
             })
 
-            res.status(200).send(books)
+            res.status(200).send(goals)
         } catch (err) {
             console.log(err)
             res.sendStatus(500)
         }
     },
+
+    // editGoal: async (req, res) => {
+    //     try {
+    //         const {
+
+    //         }
+    //     }
+    // } catch (err) {}
+    // console.log(err)
+    // res.send.Status(500)
+
 
 }
